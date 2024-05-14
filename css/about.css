@@ -1,0 +1,47 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Centra el contenido */
+}
+
+.about-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.about-info {
+    margin-bottom: 20px;
+}
+
+.about-info p {
+    margin: 5px 0;
+}
+
+.about-features {
+    margin-top: 10px;
+}
+
+.about-features ul {
+    list-style-type: none;
+    padding: 0;
+    display: inline-block; /* Cambia la visualización de la lista */
+}
+
+.about-features li {
+    margin-bottom: 5px;
+    background-color: #f0f0f0; /* Cambia el color de fondo de los elementos de la lista */
+    padding: 8px 15px; /* Añade un espacio interno a los elementos de la lista */
+    border-radius: 5px; /* Agrega esquinas redondeadas */
+}
+
+@media screen and (max-width: 600px) {
+    .about-container {
+        padding: 10px;
+    }
+
+    .about-title {
+        font-size: 20px;
+    }
+}
