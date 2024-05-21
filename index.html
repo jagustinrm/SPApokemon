@@ -6,35 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Single Page Web</title>
     <link rel="stylesheet" href="style.css">
-
-
 </head>
-<body>
-    
+<body> 
     <nav>
         <div class="logo-container">
-            <img src="img/pokeball.png" alt="" id="pokeball">
-
+            <img src="img/pokeball.png" alt="Logo Pokeball" id="pokeball">
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">
             <ul class="menu">
-                <li class="menu__item" value="home">Home</li>
-                <li class="menu__item" value="about">About</li>
+                <li class="menu__item" data-value="home">Home</li>
+                <li class="menu__item" data-value="about">About</li>
             </ul>
-            <img src="img/hamburguesa.png" alt="" id="hamburguesa">
+            <img src="img/hamburguesa.png" alt="Menu Toggle" id="hamburguesa">
         </div>
-
     </nav>
-
     <main>
-
-        <section id="container">
-                        
+        <section id="container">              
         </section>
-
     </main>
-
     <footer>&copy; 2024 JARM</footer>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>
