@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // REDIRECCIONAR A HOME
 const currentUrl = window.location.pathname;
-if (currentUrl === '/' || currentUrl === '/index') {
+if (currentUrl === '/' || currentUrl === '/index' ) {
         fetchPage('home');
 }
 
@@ -23,6 +23,7 @@ function toggleMenu() {
     const menu = document.querySelector('.menu');
     menu.classList.toggle('show-menu');
 }
+window.toggleMenu = toggleMenu;
 
 function fetchPage(url) {
     fetch(`pages/${url}.html`)
@@ -35,15 +36,14 @@ function fetchPage(url) {
         .then(html => {
             container.innerHTML = html;
             document.title = url;
-            
             const scripts = container.querySelectorAll('script');
             scripts.forEach(script => {
                 if (script.src) {
                     const newScript = document.createElement('script');
                     newScript.src = script.src;
+                    newScript.type = "module"
                     document.head.appendChild(newScript);
                 } else {
-                    
                     eval(script.innerText);
                 }
             });

@@ -1,6 +1,11 @@
 function inicializarPaginaHome() {
+
 const paginationContainer = document.getElementById('pagination');
 
+const currentUrl = window.location.pathname;
+if (currentUrl === '/' || currentUrl === '/index') {
+    loadPokemons(0); 
+}
 
 paginationContainer.addEventListener('click', function(event) {
     const clickedElement = event.target;
@@ -46,15 +51,13 @@ function capitalize(text) {
             const contenedor = document.createElement('div');
             const listaHabilidades = document.createElement('select');
             data.moves.forEach( (movimiento) => {
-                habilidad = document.createElement('option')
+                const habilidad = document.createElement('option')
                 habilidad.value = `${movimiento.move.name}`
                 habilidad.textContent = `${movimiento.move.name}`
                 listaHabilidades.appendChild(habilidad)
             }
 
             )
-            // const habilidad = document.createElement('li');
-            // habilidad.textContent = `${data.moves[0].move.name}`;
 
             const pokemonImg = document.createElement('img');
             const nombre = document.createElement('h2');
@@ -69,9 +72,6 @@ function capitalize(text) {
             contenedor.appendChild(pokemonImg);
             contenedor.appendChild(listaHabilidades)
             mainContent.appendChild(contenedor)
-
-            console.log(data)
-
         } else {
             console.error('No se encontró la imagen del Pokémon');
         }
@@ -100,7 +100,7 @@ function loadPokemons(offset) {
             pokemonItem.onclick = () => handlePokemonClick({pokemon, mainContent});
 
             pokemonList.appendChild(pokemonItem);
-            console.log(pokemonList)
+
         });
         mainContent.appendChild(pokemonList);
     })
