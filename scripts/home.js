@@ -5,11 +5,13 @@ const paginationContainer = document.getElementById('pagination');
 const currentUrl = window.location.pathname;
 if (currentUrl === '/' || currentUrl === '/index') {
     loadPokemons(0); 
+
+    
 }
 
 paginationContainer.addEventListener('click', function(event) {
     const clickedElement = event.target;
-
+   
     if (clickedElement.tagName === 'A') {
         const page = parseInt(clickedElement.textContent);
         handlePageClick(page, clickedElement);

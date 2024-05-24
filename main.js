@@ -34,19 +34,23 @@ function fetchPage(url) {
             return response.text();
         })
         .then(html => {
+            const container = document.getElementById('container');
             container.innerHTML = html;
             document.title = url;
+
+            // Re-ejecutar scripts después de insertar el HTML
             const scripts = container.querySelectorAll('script');
             scripts.forEach(script => {
+                const newScript = document.createElement('script');
                 if (script.src) {
-                    const newScript = document.createElement('script');
                     newScript.src = script.src;
-                    newScript.type = "module"
                     document.head.appendChild(newScript);
+
                 } else {
                     eval(script.innerText);
                 }
             });
+
         })
         .catch(error => {
             console.error('Error al obtener la página:', error)
